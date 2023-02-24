@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ФильмоТека</title>
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			margin: 0;
+			background-color: #f5f5f5;
+			font-family: Arial, sans-serif;
+		}
+		h1 {
+			margin-top: 0;
+		}
+		input[type="text"] {
+			padding: 8px;
+			font-size: 16px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+			margin-right: 10px;
+		}
+		button {
+			padding: 8px 16px;
+			font-size: 16px;
+			border-radius: 5px;
+			border: none;
+			background-color: #007bff;
+			color: #fff;
+			cursor: pointer;
+		}
+		button:hover {
+			background-color: #0069d9;
+		}
+	</style>
+</head>
+<body>
+	<h1>ФильмоТека</h1>
+	<form id="search-form">
+		<input type="text" id="search" name="search">
+		<button type="submit">OK</button>
+	</form>
+	<script>
+		const form = document.getElementById('search-form');
+		form.addEventListener('submit', (event) => {
+			event.preventDefault();
+			const searchValue = document.getElementById('search').value;
+			const dataTitle = searchValue;
+			const url = `result.html?id=yohoho&data-title=${dataTitle}`;
+			window.location.href = url;
+		});
+	</script>
+</body>
+</html> 
