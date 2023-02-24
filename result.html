@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Результаты поиска</title>
+	<script src="yo.js"></script>
+</head>
+<body>
+	<div id="yohoho" data-title=""></div>
+	<script>
+		var searchParams = new URLSearchParams(window.location.search);
+		var searchText = searchParams.get('search');
+		document.getElementById("yohoho").setAttribute("data-title", searchText);
+	</script>
+</body>
+</html>
+
