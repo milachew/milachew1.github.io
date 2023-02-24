@@ -4,8 +4,22 @@
 	<title>ФильмоТека</title>
 </head>
 <body>
-	<div id="yohoho" data-title="Дэдпул"></div>
+	<label for="userInput">Введите заголовок:</label>
+	<input type="text" id="userInput">
+	<button onclick="updateTitle()">ОК</button>
+	<div id="yohoho" data-title="Тайна Коко"></div>
 	<script src="yo.js"></script>
+	<script>
+		function updateTitle() {
+			var input = document.getElementById("userInput");
+			var title = input.value;
+			var yohoho = document.getElementById("yohoho");
+			yohoho.setAttribute("data-title", title);
+			// перезапуск скрипта
+			var script = document.createElement("script");
+			script.src = "yo.js";
+			document.head.appendChild(script);
+		}
+	</script>
 </body>
 </html>
-
