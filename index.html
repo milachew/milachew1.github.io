@@ -40,17 +40,19 @@
 </head>
 <body>
 	<h1>ФильмоТека</h1>
-	<form onsubmit="return handleSubmit()">
+	<form id="search-form">
 		<input type="text" id="search" name="search">
 		<button type="submit">OK</button>
 	</form>
 	<script>
-	function handleSubmit() {
-		event.preventDefault();
-		var searchText = document.getElementById("search").value;
-		window.location.href = "result.html?search=" + searchText;
-		return false;
-	}
-</script>
+		const form = document.getElementById('search-form');
+		form.addEventListener('submit', (event) => {
+			event.preventDefault();
+			const searchValue = document.getElementById('search').value;
+			const dataTitle = searchValue;
+			const url = `result.html?id=yohoho&data-title=${dataTitle}`;
+			window.location.href = url;
+		});
+	</script>
 </body>
-</html>
+</html> 

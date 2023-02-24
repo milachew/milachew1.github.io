@@ -1,16 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Результаты поиска</title>
+	<title>Yo</title>
 	<script src="yo.js"></script>
 </head>
 <body>
-	<div id="yohoho" data-title=""></div>
-	<script>
-		var searchParams = new URLSearchParams(window.location.search);
-		var searchText = searchParams.get('search');
-		document.getElementById("yohoho").setAttribute("data-title", searchText);
-	</script>
+	<div id="yohoho" data-title="${decodeURIComponent(getParameterByName('data-title'))}"></div>
 </body>
 </html>
-
