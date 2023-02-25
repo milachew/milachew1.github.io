@@ -2,62 +2,82 @@
 <html>
 <head>
 	<title>ФильмоТека</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
 		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+			text-align: center;
+		}
+
+		.container {
 			display: flex;
 			flex-direction: column;
-			align-items: center;
 			justify-content: center;
+			align-items: center;
 			height: 100vh;
-			margin: 0;
-			background-color: #f5f5f5;
-			font-family: Arial, sans-serif;
 		}
+
 		h1 {
-			margin-top: 0;
+			margin: 0;
+			font-size: 3em;
+			font-weight: bold;
 		}
-		input[type="text"] {
-			padding: 8px;
-			font-size: 16px;
-			border-radius: 5px;
-			border: none;
-			box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-			margin-right: 10px;
+
+		input[type=text] {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border: 2px solid #ccc;
+			border-radius: 4px;
+			background-color: #f8f8f8;
+			font-size: 1.2em;
+			text-align: center;
 		}
-		button {
-			padding: 8px 16px;
-			font-size: 16px;
-			border-radius: 5px;
+
+		input[type=submit] {
+			background-color: #4CAF50;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
 			border: none;
-			background-color: #007bff;
-			color: #fff;
+			border-radius: 4px;
 			cursor: pointer;
+			font-size: 1.2em;
+			text-align: center;
+			width: 100%;
 		}
-		button:hover {
-			background-color: #0069d9;
+
+		input[type=submit]:hover {
+			background-color: #45a049;
+		}
+
+		#player {
+			display: none;
+			margin-top: 50px;
 		}
 	</style>
-	<script src="yo.js"></script>
 </head>
 <body>
-	<h1>ФильмоТека</h1>
-	<form id="search-form">
-		<input type="text" id="search" name="search">
-		<button type="button" data-ahoy="yohoho">OK</button>
-	</form>
-	<div id="yohoho" data-title=""></div>
-	<script>
-		const form = document.getElementById('search-form');
-		const yohoho = document.getElementById('yohoho');
-		form.addEventListener('submit', (event) => {
-		event.preventDefault();
-	});
+	<div class="container">
+		<h1>ФильмоТека</h1>
+		<form>
+			<input type="text" id="movieTitle" name="movieTitle" placeholder="Название фильма">
+			<input type="submit" value="ОК" onclick="showPlayer()">
+		</form>
+		<div id="player" data-title="Дэдпул"></div>
+	</div>
 
-	form.querySelector('button').addEventListener('click', () => {
-		const searchValue = document.getElementById('search').value;
-		yohoho.dataset.title = searchValue;
-		yoInit();
-	});
-</script>
+	<script src="//yohoho.cc/yo.js"></script>
+	<script>
+		function showPlayer() {
+			document.getElementById("player").style.display = "block";
+			yo('#yohoho').open();
+		}
+	</script>
 </body>
 </html>
+
