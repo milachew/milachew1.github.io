@@ -37,22 +37,27 @@
 			background-color: #0069d9;
 		}
 	</style>
+	<script src="yo.js"></script>
 </head>
 <body>
 	<h1>ФильмоТека</h1>
 	<form id="search-form">
 		<input type="text" id="search" name="search">
-		<button type="submit" data-ahoy="yohoho">OK</button>
+		<button type="button" data-ahoy="yohoho">OK</button>
 	</form>
+	<div id="yohoho" data-title=""></div>
 	<script>
 		const form = document.getElementById('search-form');
+		const yohoho = document.getElementById('yohoho');
 		form.addEventListener('submit', (event) => {
-			event.preventDefault();
-			const searchValue = document.getElementById('search').value;
-			const dataTitle = searchValue;
-			const url = `result.html?id=yohoho&data-title=${dataTitle}`;
-			window.location.href = url;
-		});
-	</script>
+		event.preventDefault();
+	});
+
+	form.querySelector('button').addEventListener('click', () => {
+		const searchValue = document.getElementById('search').value;
+		yohoho.dataset.title = searchValue;
+		yoInit();
+	});
+</script>
 </body>
-</html> 
+</html>
